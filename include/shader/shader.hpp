@@ -28,9 +28,7 @@ struct Shader{
 
         char *file_content = new char[file_size + 1];
         fread(file_content, sizeof(char), file_size, file);
-        file_content[file_size] = '\0';
-
-        printf("%s\n", file_content);
+        file_content[file_size] = '\0';        
 
         s_id = glCreateShader(shader_type);        
         glShaderSource(s_id, 1, &file_content, NULL);
