@@ -1,0 +1,7 @@
+.vscode
+build/*
+lib/*
+!lib/DO_FUCKING_NOT_DELETE_DIS
+include/GLFW/*
+vendor/*
+src/env.hpp
