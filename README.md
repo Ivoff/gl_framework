@@ -5,3 +5,6 @@ sudo chmod u+rwx setup.sh
 ./setup
 make && make run
 ```
+
+# O que deve aparecer
+![alt text](screenshot.png "tabela de sufixos e prefixos")
