@@ -6,8 +6,8 @@ int main() {
     app->setup();
     while( app->m_info.is_running ) 
     {        
-        app->i_process_input();
-        app->i_update();
+        app->m_process_input();
+        app->m_update();
         app->render();
 
         glfwSwapBuffers(app->m_window.window);

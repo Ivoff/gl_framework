@@ -54,10 +54,10 @@ class Program
 private:
 
 public:
-    GLuint               m_id;
+    GLuint m_id;
     std::vector<GLuint> m_shaders;
 
-    Program(std::vector<GLuint> shaders) :
+    Program(std::vector<GLuint> shaders):
         m_shaders{shaders}
     {
         m_id = glCreateProgram();
@@ -75,7 +75,7 @@ public:
         if (!link_ok) {
             glGetProgramInfoLog(m_id, 4096, NULL, log);
             std::cerr << "Error Program [" << m_id << "]:\n" << log << std::endl;
-            exit(EXIT_FAILURE);
+            std::exit(EXIT_FAILURE);
         }        
     }
 

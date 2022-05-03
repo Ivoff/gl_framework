@@ -23,7 +23,7 @@ struct APP {
     int min_fps_time;
 };
 
-struct APP_DATA {
+struct APP_STATE {
     Program *current_program;
     GLuint current_vao;
 
@@ -40,7 +40,7 @@ private:
 public:    
     APP m_info;
     WINDOW m_window;
-    APP_DATA m_data;
+    APP_STATE m_state;
 
     Application(int width, int height, const char* title, int frame_target) : 
         m_info {false, title, frame_target, 0.0, NULL},
@@ -71,6 +71,7 @@ public:
 
         glfwGetFramebufferSize(m_window.window, &m_window.width, &m_window.height);
         glViewport(0, 0, m_window.width, m_window.height);
+        
         glfwSetFramebufferSizeCallback(m_window.window, [](GLFWwindow *window, int width, int height){
             glViewport(0, 0, width, height);
         });
@@ -82,7 +83,7 @@ public:
         m_info.is_running = true;        
     }
 
-    void i_update(){
+    void m_update(){
         int available_time = m_info.min_fps_time - (int)(glfwGetTime() - m_info.last_frame_time);
         // precisa ser <= aqui porque se a funcao de update for simples e nao demorar passa direto                
         if (available_time > 0 && available_time <= m_info.min_fps_time)
@@ -96,7 +97,7 @@ public:
         this->update(current_delta);        
     }
 
-    void i_process_input(){
+    void m_process_input(){
         glfwPollEvents();
 
         if (glfwWindowShouldClose(m_window.window))
